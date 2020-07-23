@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "ecfa4613-95c4-47ab-a07b-0055f5d58e8c",
+		"name": "New Game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9919883d-da94-454c-b5a0-3b17089c78c4",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Login\": \"Turtle\",\r\n  \"NativeName\": \"Speedy_turtle\",\r\n  \"Password\": \"2184908214\",\r\n  \"ConfirmPassword\": \"2184908214\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "104.40.150.146/api/user",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Turtle",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "2184908214",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "104.40.150.146/token",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Information about me",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42da6b90-1008-4dab-981e-c7f0d93f1285",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/me",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7a6cef2b-b7f8-4ae8-93db-2a54ea3f3866",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Login\": \"Turtle\",\r\n  \"NativeName\": \"Speedy_turtle\",\r\n  \"OldPassword\": \"2184908214\",\r\n  \"Password\": \"409i394\",\r\n  \"ConfirmPassword\": \"409i394\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "104.40.150.146/api/user/6b0d2192e4a34a57a0b95201e951b761",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"6b0d2192e4a34a57a0b95201e951b761"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Information about user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21b77f4d-124b-4403-af26-61ca9adfc374",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/user/efda55d37a594e21bfbf69d50ea420d0",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"efda55d37a594e21bfbf69d50ea420d0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All maps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fbc767cf-c647-4463-b488-7ebd79e612f1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/map",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create game",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"Turtles\",\r\n  \"MapId\": \"123\",\r\n  \"SwitchTimeout\": 30,\r\n  \"StartupTeamLives\": 10,\r\n  \"PoliceSpeed\": 2,\r\n  \"ThiefSpeed\": 3   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "104.40.150.146/api/game",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All user games",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed70ac1d-6ff8-4cb5-bed7-8ceba3fc04f4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/game",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Information about the game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ea1cc107-f4c9-4cfc-8297-62548ec25d01",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/game/c954d9b8f79a481e97b74a9e0e21113c",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"game",
+						"c954d9b8f79a481e97b74a9e0e21113c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Information about the users game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e210ff4-b2f4-408e-a877-62d094d8e037",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/user/fe2f2cd82cfb497abbc1315ce97b6229/games",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"fe2f2cd82cfb497abbc1315ce97b6229",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete game",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/game/50d8014b01d74b2ea40f5ad6cd2899c0",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"game",
+						"50d8014b01d74b2ea40f5ad6cd2899c0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show all maps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "47822739-b061-419b-823b-a2e14f3329e9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 250ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/maps",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show all user maps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bdacb41e-071f-4e6b-9704-0ca4dee3554e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/user/b090a6bcfffe4e7b898bbc0356f94021/maps",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"b090a6bcfffe4e7b898bbc0356f94021",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAATfKhckv_7pOw67_JWOqTysh2HgATJ7Xp5CawMnk7ldAAAAAAOgAAAAAIAACAAAABo5Y8kqkzwpdHTX6S4LJKdpufl4RwPO-ztuyzWTquldRABAACVN9gcqWCOCZGifbDTo1CEcphBzZTx2DdMCh8aFpN51fBJqVCLVjd0fL3Hh1jxQoY8BqcmXTR3pi0cGGdp7Q7vYticX9DOHXRUf-GKilw11oe-M8pUK7bsO_rT0LC-XpOKe6EwvRnutgQHLfL3LWHxpjGtloMyO0cHuRP8KQ_vtWJcVIIj5BKIEkb4D9zgMiBCbmaAQ1ZHU--mnedy3C4Qrezpg35FJ-ttI3SFBJjo391t4vDkeBUAeaz0b0V3ILFbcZwde-qegd5cHQSmuJSVGSB1YJgmn4N1i3fdKNORnhk3Lu_Ah7YL085H1IjzXW78v0MmEn3Ky0EOmKmcbus8VxDnqobH0dCC3JM5oz_E20AAAAAx-XCDk_sDu6lxf0WXUKti0XocwXT3XBkDgjReuZgdslMMnYxt3K6uaxAO-6XT6GbX9x6PjY-AVHPLU_mFzgvx",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b3ef6f76-c342-4d86-89d6-ac5e3870e715",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "43cbf698-c14c-4159-8065-dae778ef6bf4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
